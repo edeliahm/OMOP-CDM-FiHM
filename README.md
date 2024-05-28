@@ -3,7 +3,7 @@ Queries escritas para SQL Server para extraer datos provenientes de las base de 
 
 * Solo se extrajo información clínica estandarizada
   * Información demográfica de los pacientes
-  * Diagnósticos
-  * Procedimientos clínicos 
-  * Medicamentos prescritos y administrados en episodios de ingresos y ambulantes ç
-  * Resultados de pruebas de laboratorios 
+  * Diagnósticos (CIE10)
+  * Procedimientos clínicos (CIE10)
+  * Medicamentos prescritos y administrados en episodios de ingresos y ambulantes (Códigos nacionales de medicamentos)
+  * Resultados de pruebas de laboratorios
