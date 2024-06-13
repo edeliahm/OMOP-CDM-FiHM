@@ -5,6 +5,8 @@ Official reference vocabularies were download from OHDSI’s Athena webpage -> h
 
 The data was transformed and loaded in the tables corresponding to the schema from OMOP Common Data Model v5.4 which is the latest version of the OMOP CDM -> https://ohdsi.github.io/CommonDataModel/cdm54.html#death
 
+El siguiente enlace de Google Drive contiene archivos con descripciones precisas y detalladas de las convenciones conceptuales de cada tabla y de sus respectivos. Se incluye este recurso como documento de apoyo -> https://drive.google.com/drive/folders/1DaNKe6ivIAZPJeI31VJ-pzNB9wS9hDqu
+
 # Resumen
 En el siguiente reposisitorio se encuentran los scripts de SQL usados para
 * Crear las tablas correspondientes al modelo
