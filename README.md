@@ -9,7 +9,7 @@ The data was transformed and loaded in the tables corresponding to the schema fr
 En el siguiente reposisitorio se encuentran los scripts de SQL usados para
 * Crear las tablas correspondientes al modelo
 * Crear las reglas de integridad y relaciones entre tablas (PKs & FKs)
-* Subir las tablas de referencia necesarias una BBBDD de SQLServer para poder hacer el mapeo entre códigos internos y sus respectivos códigos en formato estándar
+* Subir las tablas de referencia necesarias una BBDD de SQLServer para poder hacer el mapeo entre códigos internos y sus respectivos códigos en formato estándar
 * Extraer, Tranformar y Subir información clínica provenientes de nuestros sistemas en sus tablas correspondientes
 
 # Puntos importantes a tener en cuenta a la hora de orquestrar los procesos ETL
