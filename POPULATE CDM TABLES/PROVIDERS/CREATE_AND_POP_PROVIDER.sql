@@ -6,19 +6,20 @@ BEGIN
 	TRUNCATE TABLE BBDD_EMILIANODELIA.DBO.PROVIDER
 END;
 
-INSERT INTO BBDD_EmilianoDelia.DBO.PROVIDER(provider_id, 
-											provider_name, 
-											npi, 
-											dea, 
-											specialty_concept_id, 
-											care_site_id, 
-											year_of_birth, 
-											gender_concept_id, 
-											provider_source_value,
-											specialty_source_value, 
-											specialty_source_concept_id, 
-											gender_source_value, 
-											gender_source_concept_id)
+INSERT INTO BBDD_EmilianoDelia.DBO.PROVIDER(
+	provider_id, 
+	provider_name, 
+	npi, 
+	dea, 
+	specialty_concept_id, 
+	care_site_id, 
+	year_of_birth, 
+	gender_concept_id, 
+	provider_source_value,
+	specialty_source_value, 
+	specialty_source_concept_id, 
+	gender_source_value, 
+	gender_source_concept_id)
 
 SELECT DISTINCT
 	d.iddoctor as provider_id, 
@@ -42,11 +43,5 @@ FROM HOSMA.DBO.Doctores d
 	left join BBDD_EmilianoDelia.dbo.SOURCE_TO_CONCEPT_MAP map on map.source_code = d.Departamento and map.source_vocabulary_id like 'ESPECIALIADES_MEDICAS_HM'
 
 ORDER BY D.IdDoctor
-
-
-
-
-
-
 
 
