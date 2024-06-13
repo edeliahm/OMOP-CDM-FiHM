@@ -1,8 +1,4 @@
-
-/* ******************************************************************************* */
-/* ******************************************************************************* */
-/* ******************************************************************************* */
-
+/* IF TABLE EXISTS DELETE ITS CONTENTS SO THAT THE INSERT CAN BE MADE AGAIN FROM ZERO */
 IF OBJECT_ID('BBDD_EMILIANODELIA.DBO.VISIT_OCCURRENCE', 'U') IS NOT NULL
 BEGIN
 	TRUNCATE TABLE BBDD_EMILIANODELIA.DBO.VISIT_OCCURRENCE
@@ -18,18 +14,9 @@ WITH CTE AS (
         am.IdPaciente AS person_id, -- unique identifier for the patient 
         9202 AS visit_concept_id, -- code for Outpatient Visit from Visit Domain
         TRY_CONVERT(DATE, AMS.fechaingreso) AS visit_start_date, 
-
-		/*
-        CASE 
-			WHEN AM.HoraIngreso LIKE '' THEN AM.FECHAINGRESO
-            --WHEN AMS.HoraIngreso = '' THEN TRY_CONVERT(VARCHAR, TRY_CONVERT(DATE, AMS.FechaIngreso)) + ' ' + '00:00:00.000'
-            ELSE TRY_CONVERT(VARCHAR, TRY_CONVERT(DATE, AMS.FechaIngreso)) + ' ' + AMS.HoraIngreso + ':00.000'
-        END AS visit_start_datetime, 
-		*/
-		am.fechaingreso as visit_start_datetime, 
+	am.fechaingreso as visit_start_datetime, -- this date already has a timestamp
         TRY_CONVERT(DATE, AMS.FechaIngreso) AS visit_end_date, 
-
-		am.FECHAINGRESO AS visit_end_datetime, 
+	am.FECHAINGRESO AS visit_end_datetime, 
         --TRY_CONVERT(VARCHAR, TRY_CONVERT(DATE, AMS.FechaIngreso)) + ' ' + '00:00:00.000' AS visit_end_datetime,
         32817 AS visit_type_concept_id, --indicates where the record comes from (EHR in this case)
         am.IdDoctor AS provider_id,
@@ -70,8 +57,7 @@ WITH CTE AS (
         END AS visit_concept_id, 
         TRY_CONVERT(DATE, i.fechaingreso) AS visit_start_date, 
         CASE 
-			WHEN I.HoraIngreso = '' THEN I.FECHAINGRESO 
-            --WHEN I.HoraIngreso = '' THEN TRY_CONVERT(VARCHAR, TRY_CONVERT(DATE, i.FechaIngreso)) + ' ' + '00:00:00.000'
+	    WHEN I.HoraIngreso = '' THEN I.FECHAINGRESO 
             ELSE TRY_CONVERT(VARCHAR, TRY_CONVERT(DATE, i.FechaIngreso)) + ' ' + i.HoraIngreso + ':00.000'
         END AS visit_start_datetime, 
         TRY_CONVERT(DATE, i.fechaalta) AS visit_end_date, 
@@ -92,13 +78,15 @@ WITH CTE AS (
         MAP.target_concept_id AS discharged_to_concept_id, 
         MAP.source_code_description AS discharged_to_source_value, 
         '' AS preceding_visit_occurrence_id
+	
     FROM Ingresos I
     LEFT JOIN parametros pp ON pp.CodParametro = i.MotivoAlta AND pp.GrupoParametro = 'MTA'
     JOIN Organizacion o ON o.IdHospital = i.IdHospital
     JOIN PACIENTES P ON P.IdPaciente = I.IdPaciente
     LEFT JOIN BBDD_EmilianoDelia.DBO.SOURCE_TO_CONCEPT_MAP MAP ON MAP.source_code = I.MotivoIngreso AND MAP.source_vocabulary_id LIKE 'TIPOS_DE_ALTA_HM'
     LEFT JOIN BBDD_EmilianoDelia.DBO.SOURCE_TO_CONCEPT_MAP MAP1 ON MAP1.source_code = I.TipoIngreso AND MAP1.source_vocabulary_id LIKE 'TIPOS_DE_INGRESO_HM'
-    WHERE 
+    
+	WHERE 
         I.FechaAlta IS NOT NULL AND 
         I.ANULADO = 0 AND 
         TRY_CONVERT(DATE, I.fechaingreso) >= '2016-01-01' AND 
@@ -145,6 +133,7 @@ SELECT
     preceding_visit_occurrence_id
 
 FROM
+/* the following secuence of code ensures that only one record per visit gets inserted into the table */
 (
     SELECT *, 
         ROW_NUMBER() OVER (PARTITION BY c.visit_occurrence_id ORDER BY c.visit_occurrence_id DESC) AS rn
