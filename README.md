@@ -1,7 +1,8 @@
 # OMOP-CDM-FiHM
 Scripts de SQL para extraer datos provenientes de las BBDD del grupo HM Hospitales y transformalos en base al modelo de datos OMOP-CDM
 
-Official vocabularies were download from OHDSI’s Athena webpage  
+Official reference vocabularies were download from OHDSI’s Athena webpage  
+
 The data was transformed and loaded in the tables corresponding to the schema from OMOP Common Data Model v5.4 which is the latest version of the OMOP CDM 
 
 # Resumen
