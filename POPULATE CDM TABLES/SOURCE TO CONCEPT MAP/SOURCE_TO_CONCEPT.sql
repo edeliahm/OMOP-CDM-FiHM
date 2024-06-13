@@ -52,7 +52,7 @@ CASE
 	WHEN CodParametro LIKE 'FU' OR -- Fuga --> the patient went home/ hence we put a 0 (ingresos)
 		 CodParametro LIKE 'AV' OR -- Alta voluntaria means the patient went home (ingresos)
 		 CodParametro = 'CM' THEN 0 -- Domicilio (ingresos)
-	WHEN CodParametro = 'FC' THEN NULL -- No sé que poner acé tengo entendido que hay una tabla solo para muertes 
+	WHEN CodParametro = 'FC' THEN NULL -- No sÃ© que poner acÃ© tengo entendido que hay una tabla solo para muertes 
 	WHEN CodParametro = 'TH' THEN 9202 -- 	Traslado al hospital (ingresos)
 	WHEN CodParametro = 'TR' or --Traslado a un Centro Sociosanitario (ingresos)
 		 CodParametro = 'TS'  THEN 8756 --Traslado a Hotel Sanitario (ingresos)
@@ -94,7 +94,7 @@ p.parametrodescr as source_code_description,
 		when p.ParametroDescr like 'Audiologia'          THEN 38004489 -- 	Audiology
 		when p.ParametroDescr like 'Cardiologia' or
 			 p.ParametroDescr like 'Cardioresonancia' or 
-			 p.ParametroDescr LIKE 'Imagen Cardíaca Avanzada' or 
+			 p.ParametroDescr LIKE 'Imagen CardÃ­aca Avanzada' or 
 			 p.ParametroDescr like 'Unidad de Ondas de Choque'   THEN 38004451 -- Cardiology
 		when p.ParametroDescr like 'Cardiologia Pediatrica'      THEN 45756805 -- Pediatric Cardiology
 		when p.ParametroDescr like 'Cirugia Cardiaca'            THEN 38004497 -- Cardiac Surgery 
@@ -156,40 +156,40 @@ p.parametrodescr as source_code_description,
 
 		-- mas especialidades 
 		when p.ParametroDescr like 'Nefrologia Pediatrica' then 45756813	--Pediatric Nephrology
-		WHEN p.ParametroDescr LIKE 'Cardiopatías Congénitas y Cardiología Pediátrica' THEN 45756805 --Pediatric Cardiology
+		WHEN p.ParametroDescr LIKE 'CardiopatÃ­as CongÃ©nitas y CardiologÃ­a PediÃ¡trica' THEN 45756805 --Pediatric Cardiology
 		WHEN p.ParametroDescr LIKE 'Control Natural de la Fertilidad' THEN 45756826	--Reproductive Endocrinology / Infertility
-		WHEN p.ParametroDescr LIKE 'Ecocardiografía Fetal' THEN 45756780	--Maternal and Fetal Medicine
+		WHEN p.ParametroDescr LIKE 'EcocardiografÃ­a Fetal' THEN 45756780	--Maternal and Fetal Medicine
 		WHEN p.ParametroDescr LIKE 'Fertility Center' THEN 45756826 --Reproductive Endocrinology / Infertility
 		WHEN p.ParametroDescr LIKE 'Fisioterapia' THEN 38004490 -- physical therapist
-		WHEN p.ParametroDescr LIKE 'Geriatría' THEN 38004478 -- geriatric medicine 
-		WHEN p.ParametroDescr LIKE 'Ginecología Oncológica' THEN 38004513 -- Gynecology / Oncology
-		WHEN p.ParametroDescr LIKE 'Hemodiálisis' THEN 38003735 --Registered Hemodialysis Nurse
-		WHEN p.ParametroDescr LIKE 'Infectología pediátrica' THEN 45756812 --Pediatric Infectious Diseases
+		WHEN p.ParametroDescr LIKE 'GeriatrÃ­a' THEN 38004478 -- geriatric medicine 
+		WHEN p.ParametroDescr LIKE 'GinecologÃ­a OncolÃ³gica' THEN 38004513 -- Gynecology / Oncology
+		WHEN p.ParametroDescr LIKE 'HemodiÃ¡lisis' THEN 38003735 --Registered Hemodialysis Nurse
+		WHEN p.ParametroDescr LIKE 'InfectologÃ­a pediÃ¡trica' THEN 45756812 --Pediatric Infectious Diseases
 		WHEN p.ParametroDescr LIKE 'Medicina del Deporte' THEN 903256 -- sports medicine 
-		WHEN p.ParametroDescr LIKE 'Medicina Hiperbárica' THEN 45756832 --Undersea and Hyperbaric Medicine
-		WHEN p.ParametroDescr LIKE 'Neumología Pediátrica' THEN 45756815 -- Pediatric Pulmonology
-		WHEN p.ParametroDescr LIKE 'Neurocirugía Pediátrica' THEN 44777757 -- paediatric neurosurgery 
-		WHEN p.ParametroDescr LIKE 'Neuropsicología' THEN 38004505 -- neuropsychiatry 
-		WHEN p.ParametroDescr LIKE 'Odontología Pediátrica' THEN 38003677 -- Pediatric Dentistry
-		WHEN p.ParametroDescr LIKE 'Oncología Médica' THEN 38004507 -- medical oncology 
+		WHEN p.ParametroDescr LIKE 'Medicina HiperbÃ¡rica' THEN 45756832 --Undersea and Hyperbaric Medicine
+		WHEN p.ParametroDescr LIKE 'NeumologÃ­a PediÃ¡trica' THEN 45756815 -- Pediatric Pulmonology
+		WHEN p.ParametroDescr LIKE 'NeurocirugÃ­a PediÃ¡trica' THEN 44777757 -- paediatric neurosurgery 
+		WHEN p.ParametroDescr LIKE 'NeuropsicologÃ­a' THEN 38004505 -- neuropsychiatry 
+		WHEN p.ParametroDescr LIKE 'OdontologÃ­a PediÃ¡trica' THEN 38003677 -- Pediatric Dentistry
+		WHEN p.ParametroDescr LIKE 'OncologÃ­a MÃ©dica' THEN 38004507 -- medical oncology 
 		WHEN p.ParametroDescr LIKE 'Ortodoncia' THEN 44777673	--Orthodontics
-		WHEN p.ParametroDescr LIKE 'Psicología Infantil' THEN 38003640	--Clinical Child and Adolescent Psychologist
-		WHEN p.ParametroDescr LIKE 'Psiquiatría Infanto-juvenil' THEN 45756756	--Child and Adolescent Psychiatry
-		WHEN p.ParametroDescr LIKE 'Radiología Pediátrica' THEN 45756816	--Pediatric Radiology
-		WHEN p.ParametroDescr LIKE 'Radiología Vascular Intervencionista' THEN 45756833	--Vascular and Interventional Radiology
-		WHEN p.ParametroDescr LIKE 'Reumatología Pediátrica' THEN 45756818	--Pediatric Rheumatology
+		WHEN p.ParametroDescr LIKE 'PsicologÃ­a Infantil' THEN 38003640	--Clinical Child and Adolescent Psychologist
+		WHEN p.ParametroDescr LIKE 'PsiquiatrÃ­a Infanto-juvenil' THEN 45756756	--Child and Adolescent Psychiatry
+		WHEN p.ParametroDescr LIKE 'RadiologÃ­a PediÃ¡trica' THEN 45756816	--Pediatric Radiology
+		WHEN p.ParametroDescr LIKE 'RadiologÃ­a Vascular Intervencionista' THEN 45756833	--Vascular and Interventional Radiology
+		WHEN p.ParametroDescr LIKE 'ReumatologÃ­a PediÃ¡trica' THEN 45756818	--Pediatric Rheumatology
 		WHEN p.ParametroDescr LIKE 'Trabajo Social' THEN 38004499	--Social Worker
 		WHEN p.ParametroDescr LIKE 'Tratamiento acupuntura' THEN 38003780	--Acupuncturist
 		WHEN p.ParametroDescr LIKE 'Unidad de Cuidados Domiciliarios' THEN 38004436	--Home Health Aide
-		WHEN p.ParametroDescr LIKE 'Unidad de Endoscopia Bariátrica' THEN 38004455 -- Gastroenterology
-		WHEN p.ParametroDescr LIKE 'Unidad de Hospitalización a Domicilio' THEN 38004436	--Home Health Aide
+		WHEN p.ParametroDescr LIKE 'Unidad de Endoscopia BariÃ¡trica' THEN 38004455 -- Gastroenterology
+		WHEN p.ParametroDescr LIKE 'Unidad de HospitalizaciÃ³n a Domicilio' THEN 38004436	--Home Health Aide
 		WHEN p.ParametroDescr LIKE 'Unidad de Medicina Integral del Adolescente' THEN 45756747	--Adolescent Medicine
 		WHEN p.ParametroDescr LIKE 'Unidad de Medicina Molecular' THEN 45756762--Clinical Molecular Genetics
 		WHEN p.ParametroDescr like 'Quirofano' then 38004447 -- General Surgery
 		WHEN p.ParametroDescr LIKE 'Unidad del Dolor' THEN 38004494	--Pain Management
-		WHEN p.ParametroDescr LIKE 'Urología Pediátrica' THEN 45756821	--Pediatric Urology
+		WHEN p.ParametroDescr LIKE 'UrologÃ­a PediÃ¡trica' THEN 45756821	--Pediatric Urology
 		WHEN p.ParametroDescr LIKE 'USOC' THEN 38004488 -- psychology
-		when p.ParametroDescr like 'Electrofisiología Cardíaca' then 903274	--Clinical Cardiac Electrophysiology
+		when p.ParametroDescr like 'ElectrofisiologÃ­a CardÃ­aca' then 903274	--Clinical Cardiac Electrophysiology
 		when p.ParametroDescr like 'Enfermeria' then 32581	--Nurse
 
 	ELSE 32577 --Code for Physician which is a synonym of Unknown Physician Specialty 
@@ -335,14 +335,14 @@ SELECT DISTINCT
 	--'' as test, 
 	CASE
 		WHEN f.Tipo = 'P' AND F.POAD LIKE 'S'THEN 'Dx Primario Presente en el momento del Ingreso'
-		WHEN F.Tipo = 'P' AND F.POAD LIKE 'D' THEN 'Dx Primario / Documentación insuficiente para determinar si la condición esté presente o no al momento del ingreso'
+		WHEN F.Tipo = 'P' AND F.POAD LIKE 'D' THEN 'Dx Primario / DocumentaciÃ³n insuficiente para determinar si la condiciÃ³n estÃ© presente o no al momento del ingreso'
 		WHEN F.Tipo = 'P' AND F.POAD LIKE 'E' THEN 'Dx Primario Exento de Informar POA'
 		WHEN f.Tipo = 'p' and F.POAD like 'N' THEN 'Dx Primario No presente en el episodio'
 		WHEN f.Tipo = 'S' AND F.POAD = 'S' THEN 'Dx Secundario Presente en el Ingreso'
-		WHEN f.Tipo = 'S' AND F.POAD = 'I' THEN 'Dx Secundario / No puede determinarse clínicamente si la condición estaba o no presente en el ingreso'
+		WHEN f.Tipo = 'S' AND F.POAD = 'I' THEN 'Dx Secundario / No puede determinarse clÃ­nicamente si la condiciÃ³n estaba o no presente en el ingreso'
 		WHEN f.Tipo = 'S' AND F.poad = 'N' THEN 'Dx Secundario No Presente en el Episodio'
 		WHEN f.Tipo = 'S' AND F.POAD = 'E' THEN 'Dx Secundario Exento de Informar POA'
-		WHEN f.Tipo = 'S' AND F.POAD = 'D' THEN 'Dx Secundario / Documentación insuficiente para determinar si la condición esté presente o no al momento del ingreso'
+		WHEN f.Tipo = 'S' AND F.POAD = 'D' THEN 'Dx Secundario / DocumentaciÃ³n insuficiente para determinar si la condiciÃ³n estÃ© presente o no al momento del ingreso'
 		ELSE NULL
 	END AS source_code_description, 
 	CASE 
@@ -372,12 +372,12 @@ unidades as source_code_description,
 CASE /* ALL OF THE FOLLOWING UNITS ARE MAPPED TO CONCEPTS FROM THE 'UNIT' DOMAIN AND 'UCUM' VOCABULARY */
 
 		WHEN LAB.unidades = '%' THEN 8554 -- percent 
-		WHEN LAB.unidades = 'µg/dL' THEN 8837 --microgram per deciliter
-		WHEN LAB.unidades = 'µg/mL' then 8837 -- microgram per deciliter
-		WHEN LAB.unidades = 'µmol/L' then 8749	--micromole per liter
-		when LAB.unidades = 'µUI/mL' then 9093	--micro-international unit per milliliter
+		WHEN LAB.unidades = 'Âµg/dL' THEN 8837 --microgram per deciliter
+		WHEN LAB.unidades = 'Âµg/mL' then 8837 -- microgram per deciliter
+		WHEN LAB.unidades = 'Âµmol/L' then 8749	--micromole per liter
+		when LAB.unidades = 'ÂµUI/mL' then 9093	--micro-international unit per milliliter
 
-		when LAB.unidades = 'cel/µL' then 8784	--cells per microliter
+		when LAB.unidades = 'cel/ÂµL' then 8784	--cells per microliter
 		when LAB.unidades = 'celulas/mm3' then 8888	--cells per cubic millimeter
 
 		when LAB.unidades = 'fL' then 8583 --femtoliter
@@ -385,7 +385,7 @@ CASE /* ALL OF THE FOLLOWING UNITS ARE MAPPED TO CONCEPTS FROM THE 'UNIT' DOMAIN
 		when LAB.unidades = 'g/24h' then 8807 --gram per 24 hours
 		when LAB.unidades = 'g/dL' then 8713 -- gram per deciliter
 
-		when LAB.unidades = 'IC' then NULL -- indice de corte -- los valores con esta unidad suelen ser valores categóricos 
+		when LAB.unidades = 'IC' then NULL -- indice de corte -- los valores con esta unidad suelen ser valores categÃ³ricos 
 
 		when LAB.unidades = 'mg/24h' then 8909 -- milligram per 24 hours
 		when LAB.unidades = 'mg/dL' then 8840	--milligram per deciliter
@@ -423,8 +423,8 @@ CASE /* ALL OF THE FOLLOWING UNITS ARE MAPPED TO CONCEPTS FROM THE 'UNIT' DOMAIN
 
 		/** IN BOTH OF THESE CASES THE RESULTS WITH UNITS THAT HAVE A '?' HAVE THE SAME RANGE OF VALUES AS **/
 		/** THE NORMALLY WRITTEN UNITS, THIS SAID, EACH PAIR OF UNITS BELONG TO THE SAME UNIT FORMAT **/
-		when LAB.unidades = 'x10e3/µL' or lab.unidades like 'x10e3/?L' then 8848	--thousand per microliter
-		when LAB.unidades = 'x10e6/µL' or lab.unidades like 'x10e6/?L' then 8815	--million per microliter
+		when LAB.unidades = 'x10e3/ÂµL' or lab.unidades like 'x10e3/?L' then 8848	--thousand per microliter
+		when LAB.unidades = 'x10e6/ÂµL' or lab.unidades like 'x10e6/?L' then 8815	--million per microliter
 	else NULL
 	end as targat_concept_id, 
 '' as target_vocabulary_id, 
@@ -442,23 +442,21 @@ FROM [Hosma-Doctor].DBO.LaboratorioResultados_lab lab
 
 INSERT INTO BBDD_EmilianoDelia.DBO.SOURCE_TO_CONCEPT_MAP (
 
-										source_code,
-										source_concept_id, 
-										source_vocabulary_id, 
-										source_code_description,
-
-										/* for checking */
-										--con.concept_name, 
-										--con.concept_code, 
-										--con.standard_concept, 
-
-										target_concept_id, 
-										target_vocabulary_id, 
-										valid_start_date,
-										valid_end_date, 
-										invalid_reason
-)
-
+	source_code,
+	source_concept_id, 
+	source_vocabulary_id, 
+	source_code_description,
+	
+	/* for checking */
+	--con.concept_name, 
+	--con.concept_code, 
+	--con.standard_concept, 
+	
+	target_concept_id, 
+	target_vocabulary_id, 
+	valid_start_date,
+	valid_end_date, 
+	invalid_reason)
 
 /* SELECT DATA TO INSERT INTO TABLE */
 SELECT
