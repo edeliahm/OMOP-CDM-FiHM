@@ -16,7 +16,7 @@ En el siguiente reposisitorio se encuentran los scripts de SQL usados para
 
 # Puntos importantes a tener en cuenta a la hora de orquestrar los procesos ETL
 * Las tablas __PERSON__ y __VISIT_OCCURRENCE__ son nuestras tablas principales y deben existir ya pobladas en el modelo antes de poblar el resto de tablas que van a contener informacón clínica 
-* Toda la información clínica que extraigamos de HOSMA y HOSMA-DOCTOR debe tener un id_episodio y un id_paciente existente en las tablas anteriormente mencioandas para poder ser incluidas en las tablas del modelo de datos OMOP
+* Toda la información clínica que extraigamos de HOSMA y HOSMA-DOCTOR debe tener un __id_episodio__ y un __id_paciente__ existente en las tablas anteriormente mencioandas para poder ser incluidas en las tablas del modelo de datos OMOP
 
 * Solo se extrajo información clínica estandarizada de nuestros sistemas 
   * Información demográfica de los pacientes
