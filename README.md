@@ -1,5 +1,5 @@
 # OMOP-CDM-FiHM
-Scripts de SQL para extraer datos provenientes de las BBDD del grupo HM Hospitales y transformarles en base a los criteriios del modelo de datos OMOP-CDM
+Scripts de SQL para extraer datos provenientes de las BBDD del grupo HM Hospitales y transformarlos en base a los criterios del modelo de datos OMOP-CDM
 
 Official reference vocabularies were download from OHDSI’s Athena webpage -> https://athena.ohdsi.org/search-terms/start
 
