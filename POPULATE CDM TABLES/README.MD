@@ -1,4 +1,7 @@
 ```mermaid
+---
+title: ETL Diagram - 1st Draft - HM Hospitales
+---
 flowchart TD
     db[(DB HM HOSPITALES)]
     subgraph Source Data 
