@@ -26,3 +26,6 @@ En el siguiente reposisitorio se encuentran los scripts de SQL usados para
   * Procedimientos clínicos (CIE10)
   * Medicamentos administrados en episodios de ingresos y ambulantes (Códigos nacionales de medicamentos)
   * Resultados de pruebas de laboratorios
+ 
+ ![OMOP](https://github.com/edeliahm/OMOP-CDM-FiHM/assets/144276034/d6fa6647-8cb5-45a2-9eaf-76c904a14768)
+
