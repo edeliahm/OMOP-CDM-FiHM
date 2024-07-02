@@ -1,13 +1,13 @@
 # OMOP-CDM-FiHM
-Scripts de SQL para extraer datos provenientes de las BBDD del grupo HM Hospitales y transformarlos en base a los criterios del modelo de datos OMOP-CDM
+SQL scripts for extracting data from HM Hospitales' databases and transforming it based on the OMOP-CDM data model criteria.
 
-Official reference vocabularies were download from OHDSI’s Athena webpage -> https://athena.ohdsi.org/search-terms/start
+Official reference vocabularies were downloaded from OHDSI’s Athena webpage -> https://athena.ohdsi.org/search-terms/start
 
-The data was transformed and loaded in the tables corresponding to the schema from OMOP Common Data Model v5.4 which is the latest version of the OMOP CDM -> https://ohdsi.github.io/CommonDataModel/cdm54.html#death
+The data was transformed and loaded into tables corresponding to the OMOP Common Data Model v5.4 schema, which is the latest version of OMOP CDM -> https://ohdsi.github.io/CommonDataModel/cdm54.html#death
 
-El siguiente enlace de Google Drive contiene archivos con descripciones precisas y detalladas de las convenciones conceptuales de cada tabla y de sus respectivos. Se incluye este recurso como documento de apoyo -> https://drive.google.com/drive/folders/1DaNKe6ivIAZPJeI31VJ-pzNB9wS9hDqu
+The following Google Drive link contains files with precise and detailed descriptions of the conceptual conventions of each table and their respective [content]. This resource is included as supporting documentation -> https://drive.google.com/drive/folders/1DaNKe6ivIAZPJeI31VJ-pzNB9wS9hDqu
 
-# Resumen
+# Summary
 En el siguiente reposisitorio se encuentran los scripts de SQL usados para
 * Crear las tablas correspondientes al modelo
 * Crear las reglas de integridad y relaciones entre tablas (PKs & FKs)
