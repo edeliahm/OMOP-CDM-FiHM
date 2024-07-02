@@ -3,22 +3,22 @@ SET DATEFORMAT 'YMD'
 
 IF OBJECT_ID('BBDD_EMILIANODELIA.DBO.PROVIDER', 'U') IS NOT NULL
 BEGIN
-	TRUNCATE TABLE BBDD_EMILIANODELIA.DBO.PROVIDER
+	TRUNCATE TABLE BBDD_EMILIANODELIA.OMOP_CDM.PROVIDER
 END;
 
 INSERT INTO BBDD_EmilianoDelia.OMOP_CDM.PROVIDER(provider_id, 
-	provider_name, 
-	npi, 
-	dea, 
-	specialty_concept_id, 
-	care_site_id, 
-	year_of_birth, 
-	gender_concept_id, 
-	provider_source_value,
-	specialty_source_value, 
-	specialty_source_concept_id, 
-	gender_source_value, 
-	gender_source_concept_id)
+											provider_name, 
+											npi, 
+											dea, 
+											specialty_concept_id, 
+											care_site_id, 
+											year_of_birth, 
+											gender_concept_id, 
+											provider_source_value,
+											specialty_source_value, 
+											specialty_source_concept_id, 
+											gender_source_value, 
+											gender_source_concept_id)
 
 SELECT DISTINCT
 	d.iddoctor as provider_id, 
