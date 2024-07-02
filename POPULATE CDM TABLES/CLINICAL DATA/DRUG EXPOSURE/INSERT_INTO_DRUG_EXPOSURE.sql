@@ -13,15 +13,15 @@ WITH CTE AS (
 		TRY_CONVERT(DATE, LEFT(T.FechaInicio, 8), 112) AS drug_exposure_start_date,
 		TRY_CONVERT(DATETIME, LEFT(T.FechaInicio, 8), 112) AS drug_exposure_start_datetime,
 		CASE 
-			WHEN T.FechaFin IS NULL OR T.FechaFin LIKE 0 THEN V.visit_end_date
+			WHEN T.FechaFin IS NULL OR T.FechaFin LIKE '0' THEN V.visit_end_date
 			ELSE TRY_CONVERT(DATE, LEFT(T.FechaFin, 8), 112)
 		END AS drug_exposure_end_date, 
 		CASE 
-			WHEN T.FechaFin IS NULL OR T.FECHAFIN LIKE 0 THEN V.visit_end_datetime
+			WHEN T.FechaFin IS NULL OR T.FECHAFIN LIKE '0' THEN V.visit_end_datetime
 			ELSE TRY_CONVERT(DATETIME, LEFT(T.FechaFin, 8), 112)
 		END AS drug_exposure_end_datetime, 
         CASE 
-			WHEN T.FechaFin IS NULL OR T.FechaFin LIKE 0 THEN V.visit_end_date
+			WHEN T.FechaFin IS NULL OR T.FechaFin LIKE '0' THEN V.visit_end_date
 			ELSE TRY_CONVERT(DATE, LEFT(T.FechaFin, 8), 112)
 		END AS verbatim_end_date, 
         32818 AS drug_type_concept_id, 
@@ -64,15 +64,15 @@ WITH CTE AS (
         TRY_CONVERT(DATE, LEFT(T.FechaInicio, 8), 112) AS drug_exposure_start_date,
 		TRY_CONVERT(DATETIME, LEFT(T.FechaInicio, 8), 112) AS drug_exposure_start_datetime,
 		CASE 
-			WHEN T.FechaFin IS NULL OR T.FechaFin LIKE 0 THEN V.visit_end_date
+			WHEN T.FechaFin IS NULL OR T.FechaFin LIKE '0' THEN V.visit_end_date
 			ELSE TRY_CONVERT(DATE, LEFT(T.FechaFin, 8), 112)
 		END AS drug_exposure_end_date, 
 		CASE 
-			WHEN T.FechaFin IS NULL OR T.FECHAFIN LIKE 0 THEN V.visit_end_datetime
+			WHEN T.FechaFin IS NULL OR T.FECHAFIN LIKE '0' THEN V.visit_end_datetime
 			ELSE TRY_CONVERT(DATETIME, LEFT(T.FechaFin, 8), 112)
 		END AS drug_exposure_end_datetime, 
         CASE 
-			WHEN T.FechaFin IS NULL OR T.FechaFin LIKE 0 THEN V.visit_end_date
+			WHEN T.FechaFin IS NULL OR T.FechaFin LIKE '0' THEN V.visit_end_date
 			ELSE TRY_CONVERT(DATE, LEFT(T.FechaFin, 8), 112)
 		END AS verbatim_end_date, 
         32818 AS drug_type_concept_id, 
