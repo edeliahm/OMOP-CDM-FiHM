@@ -24,7 +24,7 @@ INSERT INTO BBDD_EmilianoDelia.OMOP_CDM.LOCATION(
 	location_id,
 	address_1,
 	address_2, 
-    city, 
+    	city, 
 	state, 
 	zip, 
 	county, 
