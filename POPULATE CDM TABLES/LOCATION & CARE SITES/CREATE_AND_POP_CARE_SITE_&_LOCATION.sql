@@ -32,8 +32,7 @@ INSERT INTO BBDD_EmilianoDelia.OMOP_CDM.LOCATION(
 	country_concept_id,
 	country_source_value, 
 	latitude, 
-	longitude
-	)
+	longitude)
 
 SELECT DISTINCT
 
