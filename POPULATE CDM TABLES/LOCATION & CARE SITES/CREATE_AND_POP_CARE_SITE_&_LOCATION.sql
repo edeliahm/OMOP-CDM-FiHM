@@ -18,7 +18,9 @@
 --			latitude float NULL,
 --			longitude float NULL );
 
-INSERT INTO BBDD_EmilianoDelia.dbo.location(
+TRUNCATE TABLE bbdd_emilianodelia.OMOP_CDM.LOCATION;
+
+INSERT INTO BBDD_EmilianoDelia.OMOP_CDM.LOCATION(
 	location_id,
 	address_1,
 	address_2, 
@@ -49,7 +51,7 @@ SELECT DISTINCT
 	null as longitude 
 
 FROM hosma.dbo.Organizacion O 
-join BBDD_EmilianoDelia.dbo.diccionario_provincias p on p.codigo_com_autonoma = o.ComunidadCMBD
+join BBDD_EmilianoDelia.OMOP_CDM.diccionario_provincias p on p.codigo_com_autonoma = o.ComunidadCMBD
 
 order by state, city
 
@@ -72,14 +74,16 @@ order by state, city
 --			care_site_source_value varchar(100) NULL,
 --			place_of_service_source_value varchar(50) NULL );
 
-INSERT INTO BBDD_EmilianoDelia.dbo.care_site(
-											care_site_id,
-											care_site_name, 
-											place_of_service_concept_id, 
-											location_id, 
-											care_site_source_value, 
-											place_of_service_source_value
-											)
+TRUNCATE TABLE bbdd_emilianodelia.OMOP_CDM.CARE_SITE;
+
+
+INSERT INTO BBDD_EmilianoDelia.OMOP_CDM.CARE_SITE(
+	care_site_id,
+	care_site_name, 
+	place_of_service_concept_id, 
+	location_id, 
+	care_site_source_value, 
+	place_of_service_source_value)
 
 SELECT DISTINCT
     CASE 
@@ -96,7 +100,7 @@ SELECT DISTINCT
     O.NombreCortoWeb AS care_site_source_value,
     '' AS place_of_service_source_value
 
-FROM BBDD_EMILIANODELIA.DBO.location L 
+FROM BBDD_EMILIANODELIA.OMOP_CDM.location L 
 JOIN hosma.dbo.organizacion O ON O.IdHospital = L.location_id
 
 --CHANGE BACK DATATYPES
