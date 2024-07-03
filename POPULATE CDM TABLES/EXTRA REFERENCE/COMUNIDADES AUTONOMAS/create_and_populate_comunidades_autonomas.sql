@@ -1,15 +1,17 @@
 USE BBDD_EmilianoDelia
 
-CREATE TABLE comunidades_autonomas (
-    codigo_pais INT,
-    nombre_pais VARCHAR(50),
-    codigo_com_autonoma VARCHAR(2),
-    nombre_com_autonoma VARCHAR(100),
-    cod_provincia VARCHAR(2),
-    nombre_provincia VARCHAR(100)
-);
+--CREATE TABLE BBDD_EMILIANODELIA.OMOP_CDM.comunidades_autonomas (
+--    codigo_pais INT,
+--    nombre_pais VARCHAR(50),
+--    codigo_com_autonoma VARCHAR(2),
+--    nombre_com_autonoma VARCHAR(100),
+--    cod_provincia VARCHAR(2),
+--    nombre_provincia VARCHAR(100)
+--);
 
-INSERT INTO comunidades_autonomas (codigo_pais, nombre_pais, codigo_com_autonoma, nombre_com_autonoma, cod_provincia, nombre_provincia)
+TRUNCATE TABLE BBDD_EMILIANODELIA.OMOP_CDM.COMUNIDADES_AUTONOMAS;
+
+INSERT INTO BBDD_EMILIANODELIA.OMOP_CDM.COMUNIDADES_AUTONOMAS (codigo_pais, nombre_pais, codigo_com_autonoma, nombre_com_autonoma, cod_provincia, nombre_provincia)
 VALUES
 		(724, 'ESPAÑA', 'PV', 'COMUNIDAD AUTONOMA DEL PAIS VASCO', '01', 'ARABA/ALAVA'),
 		(724, 'ESPAÑA', 'CM', 'COMUNIDAD AUTONOMA DE CASTILLA-LA MANCHA', '02', 'ALBACETE'),
