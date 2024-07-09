@@ -1,7 +1,6 @@
-
 SET DATEFORMAT 'YMD';
 
-TRUNCATE TABLE BBDD_EMILIANODELIA.OMOP_CDM.PERSON;
+TRUNCATE TABLE bbdd_emilianodelia.omop_cdm.person;
 
 WITH CTE AS ( 
 
@@ -18,10 +17,10 @@ WITH CTE AS (
     DATEPART(DAY, p.fechanac) AS day_of_birth,
     P.FECHANAC AS birth_datetime, 
     '' AS race_concept_id, 
-    '' AS ethnicity_concept_id,  -- FK Table: Concept / FK Domain: Ethnicity 
-    '' AS location_id,  -- FK table: location
-    '' AS provider_id,  -- FK table: Provider 
-    '' AS care_site_id,  -- FK table: Care Site
+    '' AS ethnicity_concept_id, 
+	'' as location_id,
+    '' AS provider_id,  
+    '' AS care_site_id,
     '' AS person_source_value, 
     CASE 
         WHEN P.SEXO = 1 THEN 'Hombre' 
@@ -34,16 +33,14 @@ WITH CTE AS (
     '' AS ethnicity_source_value, 
     '' AS ethnicity_source_concept_id
 
- FROM HOSMA.DBO.PACIENTES P
+ FROM hosma.dbo.pacientes p
  
-WHERE 
-	P.IDPACIENTE NOT LIKE 1 AND
-	P.FechaNac IS NOT NULL
+ WHERE 
+		P.IDPACIENTE NOT LIKE 1 AND
+		P.FechaNac IS NOT NULL
 )
 
-/* INSERT INTO STATEMENT */
-
-INSERT INTO BBDD_EmilianoDelia.OMOP_CDM.PERSON(
+INSERT INTO bbdd_emilianodelia.omop_cdm.person(
 	person_id,
 	gender_concept_id,
 	year_of_birth, 
@@ -62,8 +59,6 @@ INSERT INTO BBDD_EmilianoDelia.OMOP_CDM.PERSON(
 	race_source_concept_id, 
 	ethnicity_source_value, 
 	ethnicity_source_concept_id)
-
-/* SELECT ONLY ONE RECORD PER PATIENT */
 
 SELECT DISTINCT
     person_id,
