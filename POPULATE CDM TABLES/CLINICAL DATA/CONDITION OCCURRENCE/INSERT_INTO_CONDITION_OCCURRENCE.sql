@@ -52,11 +52,11 @@ SELECT DISTINCT
 	
 FROM BBDD_EmilianoDelia.OMOP_CDM.VISIT_OCCURRENCE V
 
-		JOIN BBDD_EmilianoDelia.OMOP_CDM.PERSON PER ON PER.person_id = V.person_id
-		JOIN Hosma.DBO.DMedica D ON (V.visit_occurrence_id = D.IdEpisodio AND D.TIPOEPISODIO = 'I')
-		JOIN Hosma.DBO.FichaDMedica10 F ON D.IdDMedica = F.IdDMedica
-		JOIN HOSMA.DBO.CIE10 ON F.IdCie10 = CIE10.IdCIE10
-		LEFT JOIN bbdd_emilianodelia.OMOP_CDM.CONCEPT c on c.concept_code = cie10.codigocie10  
+	JOIN BBDD_EmilianoDelia.OMOP_CDM.PERSON PER ON PER.person_id = V.person_id
+	JOIN Hosma.DBO.DMedica D ON (V.visit_occurrence_id = D.IdEpisodio AND D.TIPOEPISODIO = 'I')
+	JOIN Hosma.DBO.FichaDMedica10 F ON D.IdDMedica = F.IdDMedica
+	JOIN HOSMA.DBO.CIE10 ON F.IdCie10 = CIE10.IdCIE10
+	LEFT JOIN bbdd_emilianodelia.OMOP_CDM.CONCEPT c on c.concept_code = cie10.codigocie10  
 
 WHERE 
 		V.visit_concept_id LIKE 9201 -- ONLY INCLUDE IP VISITS 
