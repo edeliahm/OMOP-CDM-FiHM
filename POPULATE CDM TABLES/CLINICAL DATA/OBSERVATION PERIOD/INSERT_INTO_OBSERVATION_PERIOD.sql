@@ -14,7 +14,6 @@ SELECT DISTINCT
 	32817 as period_type_concept_id   -- domain: type concept / vocab: type concept / name: EHR 
 
 FROM ingresos i 
-	JOIN Organizacion o ON O.IdHospital = i.idhospital
 	JOIN PACIENTES P ON P.IdPaciente = I.IdPaciente
 
 WHERE 
@@ -34,7 +33,6 @@ SELECT DISTINCT
 
 FROM ambulantes a
 	JOIN pacientes p ON p.idPaciente = a.IdPaciente
-	JOIN organizacion o ON o.IdHospital = a.idhospital
    
 WHERE 
 		CONVERT(DATE, A.fechaingreso) >= '2016-01-01'
