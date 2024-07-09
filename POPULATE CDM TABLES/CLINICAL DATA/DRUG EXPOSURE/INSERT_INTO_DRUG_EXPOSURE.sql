@@ -16,12 +16,12 @@ SELECT
 	CASE 
 		WHEN T.FechaFin IS NULL OR T.FechaFin LIKE '0' THEN V.visit_end_date
 		ELSE TRY_CONVERT(DATE, LEFT(T.FechaFin, 8), 112)
-	END AS drug_exposure_end_date, 
+		END AS drug_exposure_end_date, 
 	CASE 
 		WHEN T.FechaFin IS NULL OR T.FECHAFIN LIKE '0' THEN V.visit_end_datetime
 		ELSE TRY_CONVERT(DATETIME, LEFT(T.FechaFin, 8), 112)
-	END AS drug_exposure_end_datetime, 
-    CASE 
+		END AS drug_exposure_end_datetime, 
+	CASE 
 		WHEN T.FechaFin IS NULL OR T.FechaFin LIKE '0' THEN V.visit_end_date
 		ELSE TRY_CONVERT(DATE, LEFT(T.FechaFin, 8), 112)
 	END AS verbatim_end_date, 
@@ -47,10 +47,10 @@ FROM bbdd_emilianodelia.omop_cdm.visit_occurrence v
 	JOIN [Hosma].dbo.eo_comercial_drugs E1 ON (t.IdFarmacoEO = e1.Comercial_drug_id)
 
 WHERE 
-		v.visit_concept_id LIKE 9201  --ONLY JOIN IP VISIT 
-    AND v.visit_start_date >= '2016-01-01'  -- LA FECHA MAS ANTIGUA DE CIE10 EMPIEZA EN EL 2015
-	AND v.visit_start_date <= GETDATE()
-    AND t.validado = 1 
+	v.visit_concept_id LIKE 9201  --ONLY JOIN IP VISIT 
+		AND v.visit_start_date >= '2016-01-01'  -- LA FECHA MAS ANTIGUA DE CIE10 EMPIEZA EN EL 2015
+		AND v.visit_start_date <= GETDATE()
+		AND t.validado = 1 
 
 UNION ALL 
 
@@ -64,12 +64,12 @@ SELECT
 	CASE 
 		WHEN T.FechaFin IS NULL OR T.FechaFin LIKE '0' THEN V.visit_end_date
 		ELSE TRY_CONVERT(DATE, LEFT(T.FechaFin, 8), 112)
-	END AS drug_exposure_end_date, 
+		END AS drug_exposure_end_date, 
 	CASE 
 		WHEN T.FechaFin IS NULL OR T.FECHAFIN LIKE '0' THEN V.visit_end_datetime
 		ELSE TRY_CONVERT(DATETIME, LEFT(T.FechaFin, 8), 112)
-	END AS drug_exposure_end_datetime, 
-    CASE 
+		END AS drug_exposure_end_datetime, 
+	CASE 
 		WHEN T.FechaFin IS NULL OR T.FechaFin LIKE '0' THEN V.visit_end_date
 		ELSE TRY_CONVERT(DATE, LEFT(T.FechaFin, 8), 112)
 	END AS verbatim_end_date, 
@@ -95,10 +95,10 @@ FROM bbdd_emilianodelia.omop_cdm.visit_occurrence v
 	JOIN [Hosma].dbo.eo_comercial_drugs E1 ON (t.IdFarmacoEO = e1.Comercial_drug_id)
 
 WHERE 
-		v.visit_concept_id LIKE 9201  --ONLY JOIN OP VISIT 
-    AND v.visit_start_date >= '2016-01-01'  -- LA FECHA MAS ANTIGUA DE CIE10 EMPIEZA EN EL 2015
-	AND v.visit_end_date <=  GETDATE()
-    AND t.validado = 1 
+	v.visit_concept_id LIKE 9201  --ONLY JOIN OP VISIT 
+		AND v.visit_start_date >= '2016-01-01'  -- LA FECHA MAS ANTIGUA DE CIE10 EMPIEZA EN EL 2015
+		AND v.visit_end_date <=  GETDATE()
+		AND t.validado = 1 
 )
 
 INSERT INTO bbdd_emilianodelia.omop_cdm.drug_exposure(
