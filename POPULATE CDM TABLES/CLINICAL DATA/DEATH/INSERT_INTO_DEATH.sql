@@ -18,7 +18,6 @@ INSERT INTO BBDD_EmilianoDelia.OMOP_CDM.DEATH(
 	cause_source_concept_id) 
 
 SELECT
-
 	per.person_id, 
 	convert(date, i.Fechaalta) as death_date, 
 	NULL as death_datetime, -- we don´t record the time of death of patients, documentation says if not available then leave null 
@@ -28,8 +27,8 @@ SELECT
 	'' as cause_source_concept_id
 
 FROM BBDD_EmilianoDelia.OMOP_CDM.person per
-join hosma.dbo.ingresos i on i.IdPaciente = per.person_id
-JOIN [Hosma-Doctor].DBO.parametros pp on pp.CodParametro = i.MotivoAlta and GrupoParametro = 'MTA' 
+	JOIN hosma.dbo.ingresos i on i.IdPaciente = per.person_id
+	JOIN [Hosma-Doctor].DBO.parametros pp on pp.CodParametro = i.MotivoAlta and GrupoParametro = 'MTA' 
 
 WHERE 
 	datepart(year, i.FechaIngreso) >= '2016' and 
